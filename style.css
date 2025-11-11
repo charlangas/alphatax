@@ -1,0 +1,409 @@
+/*
+==================================================
+CSS Variables (Root)
+==================================================
+*/
+:root {
+    /* Fonts */
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Cormorant Garamond', serif;
+
+    /* Colors */
+    --color-primary: #6E150E;
+    --color-secondary: #EAE5C0;
+    --color-accent: #FEF7E8;
+    --color-text-light: #ffffff;
+    --color-text-dark: #000000;
+    --color-text-body: #333333;
+
+    /* Sizing & Spacing */
+    --padding-section: 112px;
+    --padding-container: 64px;
+    --max-width-container: 1440px;
+    --border-radius-btn: 70px;
+}
+
+/*
+==================================================
+Global Reset & Base Styles
+==================================================
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-text-body);
+    background-color: var(--color-text-light);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*
+==================================================
+Typography
+==================================================
+*/
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h1 {
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    font-size: clamp(3rem, 6vw, 5rem); /* Scales font size */
+}
+
+h2 {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    color: var(--color-primary);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+h3 {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+p.subheader {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.icon {
+    height: 40px;
+    width: 40px;
+    margin-bottom: 1.5rem;
+}
+
+/*
+==================================================
+Layout & Reusable Components
+==================================================
+*/
+.section {
+    padding: var(--padding-section) 0;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+    padding: 0 var(--padding-container);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    border-radius: var(--border-radius-btn);
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    padding: 0.5rem 0;
+    border-radius: 0;
+    font-weight: 600;
+}
+
+.btn.btn-secondary:hover {
+    transform: none;
+    box-shadow: none;
+    opacity: 0.7;
+}
+
+/* CTA Form */
+.cta-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cta-form form {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.cta-form input[type="email"] {
+    flex-grow: 1;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+}
+
+.cta-form .btn {
+    flex-shrink: 0;
+    white-space: nowrap; /* Prevents button text from wrapping */
+}
+
+.cta-form p {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-bottom: 0;
+}
+
+/*
+==================================================
+Section Specific Styles
+==================================================
+*/
+
+/* --- Hero Section --- */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/city.jpg') no-repeat center center/cover;
+    color: var(--color-text-light);
+    padding-bottom: var(--padding-section);
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.main-nav .logo img {
+    height: 40px;
+    width: auto;
+}
+
+.hero-content {
+    min-height: 60vh;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+/* --- Problem Section --- */
+.problem-heading {
+    /* Spans 2 columns on a 4-column grid base */
+    grid-column: 1 / span 2;
+    margin-bottom: 2rem;
+}
+
+.problem-section .grid-4 {
+    align-items: flex-start;
+}
+
+.problem-card {
+    padding-right: 1rem; /* Ensures text doesn't touch next card's space */
+}
+.problem-card .btn-secondary {
+    margin-top: 1rem;
+}
+
+/* --- Myth Section --- */
+.myth-section .myth-image img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* --- CTA Section (Dark) --- */
+.cta-section {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.cta-section h3 {
+    color: var(--color-text-light);
+}
+
+.cta-section .cta-sub {
+    color: var(--color-secondary);
+    font-size: 1.25rem;
+}
+
+/* --- What's Inside Section --- */
+.inside-section {
+    background-color: var(--color-accent);
+}
+
+.inside-section h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.inside-section .grid-3 {
+    align-items: flex-start;
+}
+
+.inside-card .btn-secondary {
+    margin-top: 1rem;
+}
+
+/* --- CTA Section 2 (Light) --- */
+.cta-section-alt {
+    background-color: var(--color-accent);
+}
+
+.cta-section-alt h3 {
+    color: var(--color-primary); /* Readability Fix */
+}
+
+.cta-section-alt .cta-sub {
+    color: var(--color-text-body); /* Readability Fix */
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+.cta-section-alt .cta-alt-image img {
+}
+
+/* --- About Section --- */
+.about-section .about-image img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+}
+
+/*
+==================================================
+Responsiveness (Mobile)
+==================================================
+*/
+
+/* --- Tablet (Medium Screens) --- */
+@media (max-width: 992px) {
+    :root {
+        --padding-section: 80px;
+        --padding-container: 40px;
+    }
+
+    .grid-4 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .problem-heading {
+        grid-column: 1 / span 2; /* Stays spanned */
+    }
+}
+
+/* --- Mobile (Small Screens) --- */
+@media (max-width: 768px) {
+    :root {
+        --padding-section: 60px;
+        --padding-container: 24px;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr; /* Stack all columns */
+        gap: 2rem;
+    }
+
+    .problem-heading {
+        grid-column: 1 / span 1; /* Stacks */
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-image {
+        /* FIX 3: Removed 'order: -1' and changed margin */
+        margin-top: 2rem; 
+    }
+
+    .myth-section .myth-image {
+        order: -1;
+    }
+
+    .cta-alt-image {
+        order: -1;
+    }
+    
+    .about-section .about-image {
+        order: -1;
+    }
+
+    .cta-form form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cta-form .btn {
+        width: 100%;
+    }
+
+    .main-nav {
+        padding: 1rem 0;
+        /* FIX 2: Push button to the right on mobile */
+        justify-content: flex-end; 
+    }
+
+    /* FIX 2: Hide logo on mobile */
+    .main-nav .logo {
+        display: none;
+    }
+
+    .main-nav .logo img {
+        height: 32px;
+    }
+}
