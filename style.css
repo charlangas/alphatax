@@ -171,7 +171,10 @@ Layout & Reusable Components
     opacity: 0.7;
 }
 
-/* CTA Form */
+/* ==================================================
+  CTA Form (UPDATED)
+  ==================================================
+*/
 .cta-form {
     display: flex;
     flex-direction: column;
@@ -180,21 +183,33 @@ Layout & Reusable Components
 
 .cta-form form {
     display: flex;
-    gap: 0.5rem;
+    flex-direction: column; /* Stacks the grid and button */
+    gap: 1rem; /* Space between grid and button */
     width: 100%;
 }
 
-.cta-form input[type="email"] {
-    flex-grow: 1;
+/* This is the new 2x2 grid container */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Updated to style all new inputs */
+.cta-form input[type="text"],
+.cta-form input[type="email"],
+.cta-form input[type="tel"] {
+    width: 100%; /* Fields fill their grid cell */
     padding: 1rem;
     border: 1px solid #ccc;
     font-family: var(--font-primary);
     font-size: 1rem;
 }
 
+/* Updated for full-width button */
 .cta-form .btn {
-    flex-shrink: 0;
-    white-space: nowrap; /* Prevents button text from wrapping */
+    width: 100%;
+    flex-shrink: 0; 
 }
 
 .cta-form p {
@@ -311,8 +326,77 @@ Section Specific Styles
     opacity: 0.9;
 }
 
-.cta-section-alt .cta-alt-image img {
+/* --- Track Record Section --- */
+.track-record-section {
+    background-color: var(--color-accent);
 }
+
+.track-record-heading {
+    text-align: center;
+}
+
+.section-subheader {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 800px; /* Constrain line length */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4rem; /* Space before cards */
+    opacity: 0.9;
+}
+
+.case-study-card {
+    background-color: var(--color-text-light);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+    /* Added to help align cards if heights differ slightly */
+    display: flex;
+    flex-direction: column;
+}
+
+.case-study-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.case-study-card p {
+    margin-bottom: 1.25rem;
+}
+
+/* Remove margin from the last paragraph in the card */
+.case-study-card p:last-child {
+    margin-bottom: 0;
+}
+
+.case-study-result-wrapper {
+    /* Add a separator line */
+    border-top: 1px solid #eee;
+    padding-top: 1.25rem;
+    margin-top: auto; /* Pushes this to the bottom */
+}
+
+.case-study-result {
+    /* The main monetary value */
+    display: block; /* Puts it on its own line */
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    line-height: 1.2;
+    margin-top: 0.5rem; /* Space from "Result:" */
+    margin-bottom: 0.25rem; /* Space before the rest of the text */
+}
+
+.case-study-note {
+    /* For the (via Income Approach) text */
+    display: block;
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
 
 /* --- About Section --- */
 .about-section .about-image img {
@@ -367,7 +451,6 @@ Responsiveness (Mobile)
     }
 
     .hero-image {
-        /* FIX 3: Removed 'order: -1' and changed margin */
         margin-top: 2rem; 
     }
 
@@ -382,23 +465,20 @@ Responsiveness (Mobile)
     .about-section .about-image {
         order: -1;
     }
-
-    .cta-form form {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .cta-form .btn {
-        width: 100%;
+    
+    /* FORM CSS CHANGE
+      This stacks the 2x2 grid into a single column on mobile.
+      The old form/button rules were removed as they are no longer needed.
+    */
+    .form-grid {
+        grid-template-columns: 1fr;
     }
 
     .main-nav {
         padding: 1rem 0;
-        /* FIX 2: Push button to the right on mobile */
         justify-content: flex-end; 
     }
 
-    /* FIX 2: Hide logo on mobile */
     .main-nav .logo {
         display: none;
     }
