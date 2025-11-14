@@ -191,8 +191,7 @@ Layout & Reusable Components
 /* This is the new 2x2 grid container */
 .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr;
 }
 
 /* Updated to style all new inputs */
