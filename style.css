@@ -486,3 +486,174 @@ Responsiveness (Mobile)
         height: 32px;
     }
 }
+
+/* ==================================================
+Thank You Page Specific Styles 
+==================================================
+*/
+
+/* ==================================================
+   Thank You Page Header & Banner
+   ================================================== 
+*/
+
+/* The Green Success Banner */
+.success-banner {
+    background-color: #2E7D32; /* Professional Success Green */
+    color: #ffffff;
+    padding: 0.75rem 0;
+    text-align: center;
+    width: 100%;
+}
+
+.success-banner p {
+    margin-bottom: 0; /* Overrides global paragraph spacing */
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* New Header Style 
+   (Replaces .hero-section for this page only)
+*/
+.thank-you-header {
+    background-color: #ffffff;
+}
+
+.thank-you-header .main-nav {
+    padding: 1rem 0; /* Reduced padding compared to homepage */
+    justify-content: center; /* Centers the logo */
+}
+
+/* Mobile tweak for the banner text */
+@media (max-width: 768px) {
+    .success-banner {
+        padding: 1rem 0;
+    }
+    .success-banner p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+}
+
+/* Limits line length for readability on the sales letter */
+.thank-you-container {
+    width: 100%;
+    max-width: 800px; /* Optimal reading width */
+    margin: 0 auto;
+    padding: 0 var(--padding-container);
+}
+
+/* Hero modification for Thank You page: Centers content */
+.hero-content.thank-you-hero {
+    min-height: 40vh; /* Shorter than the main LP */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.thank-you-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 0;
+}
+
+/* Main Sales Letter Section */
+.letter-section {
+    background-color: var(--color-text-light);
+}
+
+.letter-head {
+    font-family: var(--font-secondary);
+    color: var(--color-primary);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.letter-sub {
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--color-text-body);
+    margin-bottom: 3rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.letter-body {
+    font-size: 1.125rem; /* Slightly larger for readability */
+    line-height: 1.8;
+}
+
+/* Visual Divider */
+.divider {
+    height: 1px;
+    background-color: #ddd;
+    width: 100%;
+    max-width: 200px;
+    margin: 4rem auto;
+}
+
+/* Triage / Calendly Section */
+.triage-section {
+    background-color: var(--color-accent); /* Uses your existing cream color */
+    padding-bottom: var(--padding-section);
+}
+
+.triage-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.triage-content h2 {
+    margin-bottom: 1.5rem;
+}
+
+.triage-text {
+    font-size: 1.15rem;
+    margin-bottom: 3rem;
+}
+
+/* Calendly Placeholder Styling */
+#calendly-embed {
+    width: 100%;
+    min-height: 700px; /* Takes up space before widget loads */
+    background-color: var(--color-text-light);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Loading state text inside the placeholder */
+#calendly-embed::before {
+    content: "Loading Scheduler...";
+    color: #999;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+}
+
+/* Mobile Adjustments for Thank You Page */
+@media (max-width: 768px) {
+    .thank-you-container {
+        padding: 0 24px;
+    }
+    
+    .hero-content.thank-you-hero {
+        min-height: 30vh;
+    }
+    
+    .letter-head {
+        text-align: left;
+    }
+    
+    .letter-sub {
+        text-align: left;
+    }
+}
