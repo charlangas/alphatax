@@ -632,12 +632,7 @@ Thank You Page Specific Styles
 }
 
 /* Loading state text inside the placeholder */
-#calendly-embed::before {
-    content: "Loading Scheduler...";
-    color: #999;
-    font-family: var(--font-primary);
-    font-size: 0.9rem;
-}
+
 
 /* Mobile Adjustments for Thank You Page */
 @media (max-width: 768px) {
